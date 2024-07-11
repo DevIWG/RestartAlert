@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulated Blue Screen</title>
+    <style>
+        body {
+            background-color: #0000aa;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            width: 50%;
+            height: auto;
+        }
+        .message {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            text-align: center;
+            z-index: 1000;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="https://firebasestorage.googleapis.com/v0/b/iwgtransverse.appspot.com/o/Prueba%2Fvector%202.png?alt=media&token=27dd139f-c1d5-4245-9f96-129827e04b92" alt="Sad face blue screen">
+        <div class="message">Tu equipo ha encontrado un problema. Has descargado un software malicioso, y se ha enviado toda su información a un equipo remoto.</div>
+    </div>
+
+    <div id="overlay">
+        <img id="overlay-img" src="https://firebasestorage.googleapis.com/v0/b/iwgtransverse.appspot.com/o/Prueba%2Fvector%201.png?alt=media&token=ab90dc44-a86c-459c-80de-7fecb041f690" alt="Malware instalado" style="display: none;">
+        <div id="overlay-message" style="display: none;">Reiniciando el sistema... <br> Software malicioso instalado...</div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('overlay').style.display = 'flex';
+            document.getElementById('overlay-img').src = 'https://firebasestorage.googleapis.com/v0/b/iwgtransverse.appspot.com/o/Prueba%2Fvector%201.png?alt=media&token=ab90dc44-a86c-459c-80de-7fecb041f690'; // Modifica esta ruta con tu primera imagen
+            document.getElementById('overlay-img').style.display = 'block';
+        }, 7000); // Muestra la primera imagen después de 10 segundos
+
+        setTimeout(function() {
+            document.getElementById('overlay-img').src = 'https://firebasestorage.googleapis.com/v0/b/iwgtransverse.appspot.com/o/Prueba%2Fvector%202.png?alt=media&token=27dd139f-c1d5-4245-9f96-129827e04b92'; // Modifica esta ruta con tu segunda imagen
+        }, 10000); // Cambia a la segunda imagen después de 3 segundos
+
+        setTimeout(function() {
+            document.getElementById('overlay-img').style.display = 'none';
+            document.getElementById('overlay-message').style.display = 'block';
+        }, 16000); // Muestra el mensaje después de 4 segundos
+    </script>
+</body>
+</html>
